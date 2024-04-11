@@ -1,11 +1,25 @@
 import React, { useState } from 'react'
 import InstLogo from '../../assets/images/logo.png'
 import GoogleLogo from '../../assets/images/google.png'
+import { useNavigate } from 'react-router-dom'
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const navigate = useNavigate()
+  const [inputs, setInputs] = useState({
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
 
-
+  const handleAuth = () => {
+    if(!inputs.email || !inputs.password){
+      alert("Please fill out all the fields");
+      return;
+    } else{
+      navigate("/");
+    }
+  };
 
 
 
@@ -13,12 +27,12 @@ const AuthForm = () => {
     <div>
       <div className='border border-solid rounded-md border-gray-700 p-2 mb-5'>
         <img src={InstLogo} alt="Instagram Logo" className='h-14 block cursor-pointer mx-auto' />
-        <input type="email" placeholder='Email' className='block mx-auto bg-transparent mb-2 outline-none border border-gray-700 text-sm rounded pl-3 h-10 w-72 focus:border-blue-400 duration-200'/>
-        <input type="password" placeholder='Password' className='block mx-auto bg-transparent mb-2 outline-none border border-gray-700 text-sm rounded pl-3 h-10 w-72 focus:border-blue-400 duration-200'/>
+        <input onChange={(e) => setInputs({...inputs, email:e.target.value})} value={inputs.email} type="email" placeholder='Email' className='block mx-auto bg-transparent mb-2 outline-none border border-gray-700 text-sm rounded pl-3 h-10 w-72 focus:border-blue-400 duration-200'/>
+        <input onChange={(e) => setInputs({...inputs, password:e.target.value})} value={inputs.password} type="password" placeholder='Password' className='block mx-auto bg-transparent mb-2 outline-none border border-gray-700 text-sm rounded pl-3 h-10 w-72 focus:border-blue-400 duration-200'/>
         {!isLogin && (
-          <input type="password" placeholder='Confirm Password' className='block mx-auto bg-transparent mb-2 outline-none border border-gray-700 text-sm rounded pl-3 h-10 w-72 focus:border-blue-400 duration-200'/>
+          <input onChange={(e) => setInputs({...inputs, confirmPassword:e.target.value})} value={inputs.confirmPassword} type="password" placeholder='Confirm Password' className='block mx-auto bg-transparent mb-2 outline-none border border-gray-700 text-sm rounded pl-3 h-10 w-72 focus:border-blue-400 duration-200'/>
         )}
-        <button className='block mx-auto bg-blue-400 mb-2 h-10 w-72 rounded text-slate-950 cursor-pointer hover:opacity-60 duration-200' >
+        <button className='block mx-auto bg-blue-400 mb-2 h-10 w-72 rounded text-slate-950 cursor-pointer hover:opacity-60 duration-200' onClick={handleAuth} >
           {isLogin ? 'Log In' : 'Sign Up'}
         </button>
         <div className='flex justify-center my-4'>
