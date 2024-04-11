@@ -22,7 +22,6 @@ const AuthForm = () => {
   };
 
 
-
   return (
     <div>
       <div className='border border-solid rounded-md border-gray-700 p-2 mb-5'>
