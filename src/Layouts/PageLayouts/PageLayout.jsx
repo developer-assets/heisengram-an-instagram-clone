@@ -12,14 +12,14 @@ const PageLayout = ({children}) => {
         <div>
           {/* SideBar */}
           {pathname !== '/auth' && (
-            <div className='w-[60px] md:w-[240px]'>
+            <div className='w-[70px] md:w-[240px]'>
               <Sidebar />
             </div>
           )}
         </div>
         <div>
           {/* MainPage */}
-          <div className='w-[calc(100vw-60px)] md:w-[calc(100vw-240px)]'>
+          <div className='w-[calc(100vw-70px)] md:w-[calc(100vw-240px)]'>
             {children}
           </div>
         </div>

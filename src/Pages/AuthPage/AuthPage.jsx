@@ -1,7 +1,7 @@
 import React from 'react'
 import AuthImage from '../../assets/images/auth.png'
 import AuthForm from '../../components/AuthForm/AuthForm'
-import PlayStore from '../../assets/images/playstore.png';
+import PlayStore from '../../assets/images/playstore.png'
 import MicroSoft from '../../assets/images/microsoft.png'
 
 const AuthPage = () => {
