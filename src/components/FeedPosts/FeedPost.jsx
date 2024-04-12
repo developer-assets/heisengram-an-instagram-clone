@@ -1,16 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PostHeader from './PostHeader'
 import PostFooter from './PostFooter'
-import img1 from '../../assets/images/img1.png'
 
-const FeedPost = () => {
+const FeedPost = ({username, img, pic}) => {
   return (
-    <div>
-      <PostHeader />
+    <div className='mb-20'>
+      <PostHeader username={username} pic={pic} />
       <div>
-        <img src={img1} alt="User Post" className='rounded' />
+        <img src={img} alt="User Post" className='rounded object-cover' />
       </div>
-      <PostFooter />
+      <PostFooter username={username} />
     </div>
   )
 }
